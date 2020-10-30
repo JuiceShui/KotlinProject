@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!--layout-->
+    <public name="include_common_divider_horizontal" type="layout" />
+    <public name="include_common_divider_horizontal_margin_left" type="layout" />
+    <public name="include_common_divider_vertical" type="layout" />
+    <!--style-->
+    <public name="Theme" type="style" />
+    <public name="Theme.Translucent" type="style" />
+    <public name="Theme.ShareDialog" type="style" />
+    <public name="Theme.Fullscreen" type="style" />
+    <public name="Dialog.LoadingDialog" type="style" />
+    <public name="Dialog.BottomDialog" type="style" />
+    <public name="Animation.WindowBottomFade" type="style" />
+    <public name="Animation.WindowFade" type="style" />
+    <public name="Animation.WindowBottom" type="style" />
+    <public name="common_button" type="style" />
+    <!--drawable-->
+    <public name="ripple_white_bg" type="drawable" />
+    <!--string-->
+    <public name="all_network_error" type="string" />
+    <!--dimen-->
+    <public name="activity_margin" type="dimen" />
+    <public name="app_text_size" type="dimen" />
+    <public name="app_bar_height" type="dimen" />
+    <public name="app_tab_bar_height" type="dimen" />
+    <public name="common_block_margin" type="dimen" />
+    <!--color-->
+    <public name="theme_color" type="color" />
+    <public name="colorPrimary" type="color" />
+    <public name="colorPrimaryDark" type="color" />
+    <public name="colorAccent" type="color" />
+    <public name="bg_default" type="color" />
+    <public name="divider" type="color" />
+    <public name="transparent" type="color" />
+    <public name="white_1" type="color" />
+    <public name="white_2" type="color" />
+    <public name="white_3" type="color" />
+    <public name="white_4" type="color" />
+    <public name="white_5" type="color" />
+    <public name="white_6" type="color" />
+    <public name="white_7" type="color" />
+    <public name="white_8" type="color" />
+    <public name="white_9" type="color" />
+    <public name="white" type="color" />
+    <public name="white_pressed" type="color" />
+    <public name="black_1" type="color" />
+    <public name="black_2" type="color" />
+    <public name="black_3" type="color" />
+    <public name="black_4" type="color" />
+    <public name="black_5" type="color" />
+    <public name="black_6" type="color" />
+    <public name="black_7" type="color" />
+    <public name="black_8" type="color" />
+    <public name="black_9" type="color" />
+    <public name="black" type="color" />
+</resources>

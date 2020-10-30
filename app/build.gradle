@@ -1,0 +1,100 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+//Kotlin自动findview
+apply plugin: 'kotlin-android-extensions'
+//no args
+apply plugin: 'kotlin-noarg'
+apply plugin: 'kotlin-allopen'
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "com.demo.kotlin"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    kapt {
+        generateStubs = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    flavorDimensions "api"
+    productFlavors {
+        beta {
+            dimension "api"
+            buildConfigField 'String', 'SERVER', '"http://api.tianapi.com/"'
+            buildConfigField 'String', 'SDK', '"XA"'
+            buildConfigField 'String', "TXAPI_KEY", '"f8d6bf3d8a2e5daa7fd6eaf1cfbe5439"'
+        }
+
+        production {
+            dimension "api"
+            buildConfigField 'String', 'SERVER', '"http://api.tianapi.com/"'
+            buildConfigField 'String', 'SDK', '"XB"'
+            buildConfigField 'String', "TXAPI_KEY", '"f8d6bf3d8a2e5daa7fd6eaf1cfbe5439"'
+        }
+    }
+    compileOptions {
+        sourceCompatibility "1.8"
+        targetCompatibility "1.8"
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    ndkVersion '21.1.6352462'
+    buildToolsVersion '29.0.2'
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    api 'com.google.dagger:dagger:2.11'
+    kapt 'com.google.dagger:dagger-compiler:2.11'
+    api 'org.glassfish:javax.annotation:10.0-b28'
+    // retrofit
+    implementation "com.squareup.retrofit2:adapter-rxjava3:2.9.0"
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    // glide
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.7'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    api 'com.github.castorflex.smoothprogressbar:library-circular:1.2.0'
+    kapt 'com.github.bumptech.glide:compiler:4.10.0'
+    // fastjson
+    api 'com.alibaba:fastjson:1.2.31'
+}
+//配置路径
+noArg {
+    annotation("com.demo.kotlin.utils.NoArg")//
+}
+
+allOpen {
+    annotation("com.demo.kotlin.utils.NoArg")
+}

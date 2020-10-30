@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--common-->
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="app_text_size">15sp</dimen>
+    <dimen name="app_bar_height">44dp</dimen>
+    <dimen name="app_tab_bar_height">50dp</dimen>
+    <dimen name="common_block_margin">12dp</dimen>
+    <dimen name="divider_height">0.5dp</dimen>
+    <!--CommonItem-->
+    <dimen name="common_item_height">48dp</dimen>
+    <dimen name="common_item_padding_h">@dimen/activity_margin</dimen>
+    <dimen name="common_item_left_icon_width">30dp</dimen>
+    <dimen name="common_item_left_icon_space">14dp</dimen>
+    <dimen name="common_item_right_icon_space">12dp</dimen>
+    <dimen name="common_item_text_size_normal">15sp</dimen>
+    <dimen name="common_item_text_size_small">13sp</dimen>
+    <dimen name="common_item_divider_left">@dimen/activity_margin</dimen>
+    <dimen name="common_item_divider_right">@dimen/activity_margin</dimen>
+    <dimen name="common_item_badge_size">20dp</dimen>
+    <dimen name="common_item_badge_text_size">12sp</dimen>
+
+    <!--edit item-->
+    <dimen name="edit_item_min_height">40dp</dimen>
+    <dimen name="edit_item_padding_top">12dp</dimen>
+    <dimen name="edit_item_padding_bottom">12dp</dimen>
+
+    <!--DefaultLoadingDialog-->
+    <dimen name="default_loading_dialog_tip_text_size">13sp</dimen>
+    <dimen name="default_loading_dialog_tip_margin_top">6dp</dimen>
+    <dimen name="default_loading_dialog_bg_corner_radius">8dp</dimen>
+    <dimen name="default_loading_dialog_padding">4dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+</resources>

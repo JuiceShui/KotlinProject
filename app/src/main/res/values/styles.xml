@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="BaseTheme" parent="BaseTheme.Base">
+        <item name="app_bar_style">@style/app_bar_style</item>
+        <item name="app_tab_bar_style">@style/app_tab_bar_style</item>
+        <item name="ui_button_style">@style/ui_button_style</item>
+        <item name="edit_item_style">@style/edit_item_style</item>
+    </style>
+
+    <style name="Theme" parent="BaseTheme" />
+
+    <style name="Theme.Translucent" parent="Theme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+
+    <style name="Theme.ShareDialog" parent="Theme.Translucent">
+        <item name="android:windowAnimationStyle">@style/Animation.WindowFade</item>
+    </style>
+
+    <style name="Theme.Fullscreen" parent="Theme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否有边框 -->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <!--是否在悬浮Activity之上  -->
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <!--loading dialog theme-->
+    <style name="Dialog.LoadingDialog" parent="Dialog">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+    </style>
+
+    <style name="Dialog.BottomDialog" parent="Dialog">
+        <!--阴影  -->
+        <item name="android:windowIsTranslucent">true</item><!--半透明-->
+        <!-- 进入和退出的动画 -->
+        <item name="android:windowAnimationStyle">@style/Animation.AppCompat.Dialog</item>
+        <!-- 点外边可以消失  -->
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="Animation" parent="android:Animation"/>
+
+    <style name="Animation.WindowBottomFade" parent="Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/anim_activity_bottom_face_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/anim_activity_hold_out</item>
+        <item name="android:activityCloseExitAnimation">@anim/anim_activity_bottom_face_out
+        </item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+    </style>
+
+    <style name="Animation.WindowFade" parent="Animation.WindowBottomFade">
+        <item name="android:activityOpenEnterAnimation">@anim/anim_fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/anim_fade_out</item>
+    </style>
+
+    <style name="Animation.WindowBottom" parent="Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_dialog_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_dialog_bottom_out</item>
+    </style>
+
+    <style name="BaseTheme.Base.V7" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="BaseTheme.Base" parent="BaseTheme.Base.V7" />
+</resources>

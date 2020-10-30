@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="ui_background_color" format="color" />
+    <attr name="ui_background_color_pressed" format="color" />
+    <attr name="ui_background_color_disabled" format="color" />
+    <attr name="ui_text_color" format="color" />
+    <attr name="ui_text_color_pressed" format="color" />
+    <attr name="ui_text_color_disabled" format="color" />
+    <attr name="ui_border_radius" format="dimension" />
+    <attr name="ui_border_width" format="dimension" />
+    <attr name="ui_border_color" format="color" />
+    <attr name="ui_border_color_pressed" format="color" />
+    <attr name="ui_border_color_disabled" format="color" />
+    <attr name="ui_fit_status_bar" format="boolean" />
+    <attr name="scroll_enabled" format="boolean" />
+    <attr name="ui_clear_icon" format="reference" />
+    <attr name="ui_clear_enabled" format="boolean" />
+
+    <!--UITextView-->
+    <declare-styleable name="UITextView">
+        <attr name="ui_ripple_enabled" format="boolean" />
+        <attr name="ui_ripple_color" format="color" />
+        <attr name="ui_touch_effect_enabled" format="boolean" />
+        <attr name="ui_background_color" />
+        <attr name="ui_background_color_pressed" />
+        <attr name="ui_background_color_disabled" />
+        <attr name="ui_text_color" />
+        <attr name="ui_text_color_pressed" />
+        <attr name="ui_text_color_disabled" />
+        <attr name="ui_border_radius" />
+        <attr name="ui_border_width" />
+        <attr name="ui_border_color" />
+        <attr name="ui_border_color_pressed" />
+        <attr name="ui_border_color_disabled" />
+    </declare-styleable>
+
+    <declare-styleable name="UIButton">
+        <attr name="ui_button_style" format="reference" />
+    </declare-styleable>
+
+    <!--CountButton-->
+    <declare-styleable name="CountButton">
+        <attr name="count_button_duration" format="integer" />
+        <attr name="count_button_text_last" format="string" />
+    </declare-styleable>
+
+    <!--UIEditText-->
+    <declare-styleable name="UIEditText">
+        <attr name="ui_clear_icon" />
+        <attr name="ui_clear_enabled" />
+    </declare-styleable>
+
+    <!--HorizontalListView-->
+    <declare-styleable name="HorizontalListView">
+        <attr name="dividerWidth" format="dimension" />
+        <attr name="android:divider" />
+        <attr name="android:requiresFadingEdge" />
+        <attr name="android:fadingEdgeLength" />
+    </declare-styleable>
+
+    <!--UIViewPager-->
+    <declare-styleable name="UIViewPager">
+        <attr name="scroll_enabled" />
+    </declare-styleable>
+
+    <!--UINoPreloadViewPager-->
+    <declare-styleable name="UINoPreloadViewPager">
+        <attr name="scroll_enabled" />
+    </declare-styleable>
+
+    <!--UIProgressBar-->
+    <declare-styleable name="UIProgressBar">
+        <attr name="duration" format="integer" />
+        <attr name="progressColor" format="color" />
+        <attr name="inverse" format="boolean" />
+    </declare-styleable>
+
+    <!--UITabLayout-->
+    <declare-styleable name="UITabLayout">
+        <attr name="tabSelectedBackground" format="reference" />
+    </declare-styleable>
+
+    <!-- AppBar -->
+    <declare-styleable name="AppBar">
+        <attr name="app_bar_style" format="reference" />
+        <attr name="android:layout_height" />
+        <attr name="app_bar_title_text_appearance" format="reference" />
+        <attr name="app_bar_left_text_appearance" format="reference" />
+        <attr name="app_bar_right_text_appearance" format="reference" />
+        <attr name="app_bar_right_secondary_text_appearance" format="reference" />
+        <attr name="app_bar_left_icon" format="reference" />
+        <attr name="app_bar_left_text" format="string" />
+        <attr name="app_bar_left_text_color" format="color" />
+        <attr name="app_bar_left_text_size" format="dimension" />
+        <attr name="app_bar_title" format="string" />
+        <attr name="app_bar_title_text_color" format="color" />
+        <attr name="app_bar_title_text_size" format="dimension" />
+        <attr name="app_bar_right_icon" format="reference" />
+        <attr name="app_bar_right_text" format="string" />
+        <attr name="app_bar_right_text_color" format="color" />
+        <attr name="app_bar_right_text_size" format="dimension" />
+        <attr name="app_bar_right_secondary_icon" format="reference" />
+        <attr name="app_bar_right_secondary_text" format="string" />
+        <attr name="app_bar_right_secondary_text_color" format="color" />
+        <attr name="app_bar_right_secondary_text_size" format="dimension" />
+        <attr name="app_bar_text_padding_horizontal" format="dimension" />
+        <attr name="ui_fit_status_bar" />
+        <attr name="app_bar_custom_view" format="reference" />
+    </declare-styleable>
+
+    <!--UIToolbar-->
+    <declare-styleable name="UIToolbar">
+        <attr name="android:layout_height" />
+        <attr name="ui_toolbar_right_icon" format="reference" />
+        <attr name="ui_toolbar_right_text" format="string" />
+        <attr name="ui_toolbar_right_secondary_icon" format="reference" />
+        <attr name="ui_toolbar_right_secondary_text" format="string" />
+        <attr name="ui_fit_status_bar" />
+    </declare-styleable>
+
+    <!-- navibar -->
+    <declare-styleable name="AppTabBar">
+        <attr name="app_tab_bar_style" format="reference" />
+        <attr name="android:layout_height" />
+        <attr name="app_tab_bar_selected_index" format="integer" />
+        <attr name="app_tab_bar_top_divider" format="reference" />
+        <attr name="app_tab_bar_top_divider_height" format="dimension" />
+        <attr name="app_tab_bar_icon_width" format="dimension" />
+        <attr name="app_tab_bar_icon_height" format="dimension" />
+        <attr name="app_tab_bar_text_size" format="dimension" />
+        <attr name="app_tab_bar_space_top" format="dimension" />
+        <attr name="app_tab_bar_space_center" format="dimension" />
+        <attr name="app_tab_bar_space_bottom" format="dimension" />
+        <attr name="app_tab_bar_text_color" format="color" />
+        <attr name="app_tab_bar_text_color_selected" format="color" />
+        <attr name="app_tab_bar_icons" format="reference" />
+        <attr name="app_tab_bar_icons_selected" format="reference" />
+        <attr name="app_tab_bar_labels" format="reference" />
+        <attr name="app_tab_bar_font" format="reference" />
+    </declare-styleable>
+
+    <!--CircleWaveView-->
+    <declare-styleable name="CircleWaveView">
+        <attr name="centerWidth" format="dimension" />
+        <attr name="centerFill" format="boolean" />
+    </declare-styleable>
+
+    <!--CommonItem-->
+    <declare-styleable name="CommonItem">
+        <attr name="common_item_padding_left" format="dimension" />
+        <attr name="common_item_padding_right" format="dimension" />
+
+        <attr name="common_item_left_text" format="string" />
+        <attr name="common_item_left_tip" format="string" />
+        <attr name="common_item_right_text" format="string" />
+
+        <attr name="common_item_left_text_text_size" format="dimension" />
+        <attr name="common_item_left_tip_text_size" format="dimension" />
+        <attr name="common_item_right_text_text_size" format="dimension" />
+
+        <attr name="common_item_left_text_text_color" format="reference" />
+        <attr name="common_item_left_tip_text_color" format="reference" />
+        <attr name="common_item_right_text_text_color" format="reference" />
+
+        <attr name="common_item_left_icon" format="reference" />
+        <attr name="common_item_right_icon" format="reference" />
+        <attr name="common_item_left_icon_width" format="dimension" />
+        <attr name="common_item_right_icon_width" format="dimension" />
+
+        <!--针对左边元素space设定为marginRight，针对右边元素space为marginLeft-->
+        <attr name="common_item_left_icon_space" format="dimension" />
+        <attr name="common_item_right_icon_space" format="dimension" />
+        <attr name="common_item_left_text_space" format="dimension" />
+        <attr name="common_item_left_tip_space" format="dimension" />
+        <attr name="common_item_right_text_space" format="dimension" />
+        <attr name="common_item_badge_space" format="dimension" />
+
+        <!--是否显示divider-->
+        <attr name="common_item_divider_enabled" format="boolean" />
+        <attr name="common_item_divider_left" format="dimension" />
+        <attr name="common_item_divider_right" format="dimension" />
+
+        <attr name="common_item_badge_number" format="integer" />
+        <attr name="common_item_badge_size" format="dimension" />
+        <attr name="common_item_badge_text_size" format="dimension" />
+        <!--fontFamily-->
+        <attr name="common_item_left_text_font_family" format="reference" />
+        <attr name="common_item_right_text_font_family" format="reference" />
+        <attr name="fontPath" format="string" />
+        <attr name="leftFontPath" format="string" />
+    </declare-styleable>
+
+    <!--EditItem-->
+    <declare-styleable name="EditItem">
+        <attr name="edit_item_style" format="reference" />
+        <attr name="edit_item_label" format="string" />
+        <attr name="edit_item_label_gravity" format="enum">
+            <enum name="top" value="0" />
+            <enum name="center" value="1" />
+            <enum name="bottom" value="2" />
+        </attr>
+        <attr name="edit_item_label_text_color" format="color" />
+        <attr name="edit_item_label_text_size" format="dimension" />
+        <attr name="edit_item_label_space" format="dimension" />
+        <attr name="edit_item_label_min_width" format="dimension" />
+        <attr name="android:text" />
+        <attr name="android:textColor" />
+        <attr name="android:textSize" />
+        <attr name="android:singleLine" />
+        <attr name="android:inputType" />
+        <attr name="android:imeOptions" />
+        <attr name="android:hint" />
+        <attr name="android:textColorHint" />
+        <attr name="ui_clear_icon" />
+        <attr name="ui_clear_enabled" />
+    </declare-styleable>
+
+    <!--DonutProgress-->
+    <declare-styleable name="DonutProgress">
+        <attr name="donut_progress" format="float" />
+        <attr name="donut_max" format="integer" />
+
+        <attr name="donut_unfinished_color" format="color" />
+        <attr name="donut_finished_color" format="color" />
+
+        <attr name="donut_finished_stroke_width" format="dimension" />
+        <attr name="donut_unfinished_stroke_width" format="dimension" />
+
+        <attr name="donut_text_size" format="dimension" />
+        <attr name="donut_text_color" format="color" />
+
+        <attr name="donut_prefix_text" format="string" />
+        <attr name="donut_suffix_text" format="string" />
+        <attr name="donut_text" format="string" />
+
+        <attr name="donut_background_color" format="color" />
+
+        <attr name="donut_inner_bottom_text" format="string" />
+        <attr name="donut_inner_bottom_text_size" format="dimension" />
+        <attr name="donut_inner_bottom_text_color" format="color" />
+
+        <attr name="donut_circle_starting_degree" format="integer" />
+        <attr name="donut_show_text" format="boolean" />
+        <attr name="donut_inner_drawable" format="reference" />
+    </declare-styleable>
+</resources>
