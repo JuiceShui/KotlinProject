@@ -6,6 +6,10 @@ class RetrofitHelper private constructor() {
         return APIHelper.instance
     }
 
+    fun getOtherAPI(): OtherAPIHelper {
+        return OtherAPIHelper.instance
+    }
+
     companion object {
         val instance = RetrofitHelper()
     }

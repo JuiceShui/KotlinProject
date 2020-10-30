@@ -44,6 +44,10 @@ class HomeActivity : BaseActivity(), View.OnClickListener, HomeContract.View {
 
     }
 
+    override fun canSlidingClose(): Boolean {
+        return true
+    }
+
     override fun onGetData(data: MutableList<WXHotNewsEntity>) {
         //ToastUtil.showLongToast(data.size)
         tv_home.text = "hhhhhhh"

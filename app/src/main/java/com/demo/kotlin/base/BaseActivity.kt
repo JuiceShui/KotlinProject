@@ -26,6 +26,7 @@ import com.demo.kotlin.utils.ToastUtil
 import com.demo.kotlin.utils.bus.AppBus
 import com.demo.kotlin.view.widget.AppBar
 import com.demo.kotlin.view.widget.DefaultLoadingDialog
+import com.demo.kotlin.view.widget.SlidingLayout
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -64,6 +65,10 @@ abstract class BaseActivity : AppCompatActivity(), ICreateInit, ILoadView, Handl
     override fun onCreate(@Nullable savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mActivity = this
+        if (canSlidingClose()) {
+            val layout = SlidingLayout(this)
+            layout.bindActivity(this)
+        }
         AppBus.register(this)
         mApp = BaseApplication.instance
         mApp?.addActivity(this)
@@ -305,5 +310,9 @@ abstract class BaseActivity : AppCompatActivity(), ICreateInit, ILoadView, Handl
 
     protected open fun getActivityModule(): ActivityModule {
         return ActivityModule(this)
+    }
+
+    protected open fun canSlidingClose(): Boolean {
+        return false
     }
 }
