@@ -3,4 +3,10 @@
 <resources>
     <string name="app_name">Ko</string>
     <string name="all_network_error">网络不给力，请稍后再试~</string>
+
+    <string name="home">首页</string>
+    <string name="search">搜索</string>
+    <string name="likes">收藏</string>
+    <string name="notification">通知</string>
+    <string name="profile">个人</string>
 </resources>

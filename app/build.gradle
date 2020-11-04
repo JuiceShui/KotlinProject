@@ -89,6 +89,11 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.10.0'
     // fastjson
     api 'com.alibaba:fastjson:1.2.31'
+    //navigatorView
+    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
+    //blur
+    implementation 'com.github.mmin18:realtimeblurview:1.2.1'
+
 }
 //配置路径
 noArg {

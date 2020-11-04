@@ -48,7 +48,7 @@ abstract class BaseFragment : Fragment(), ILoadView, ICreateInit,
     protected var mActivity: BaseActivity? = null
 
     // 是否开启懒加载
-    protected var mLazyInitEnabled = true
+    protected var mLazyInitEnabled = false
 
     // 是否初始化标志
     protected var mInit = false
@@ -109,7 +109,7 @@ abstract class BaseFragment : Fragment(), ILoadView, ICreateInit,
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         if (isVisibleToUser && !mInit) {
-            onLazyInitView(null)
+           // onLazyInitView(null)
             mInit = true
         }
     }
@@ -117,7 +117,7 @@ abstract class BaseFragment : Fragment(), ILoadView, ICreateInit,
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         if (!hidden && !mInit) {
-            onLazyInitView(null)
+           // onLazyInitView(null)
             mInit = true
         }
     }
@@ -268,5 +268,9 @@ abstract class BaseFragment : Fragment(), ILoadView, ICreateInit,
 
     protected open fun getFragmentModule(): FragmentModule {
         return FragmentModule(this)
+    }
+
+    override fun handleException(throwable: Throwable?) {
+
     }
 }

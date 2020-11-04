@@ -11,6 +11,6 @@ class Tip6AutoFindView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        tv_test.text = "hhhhh";
+       // tv_test.text = "hhhhh";
     }
 }

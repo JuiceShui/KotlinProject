@@ -8,6 +8,8 @@
     <dimen name="app_tab_bar_height">50dp</dimen>
     <dimen name="common_block_margin">12dp</dimen>
     <dimen name="divider_height">0.5dp</dimen>
+    <dimen name="normal_margin">16dp</dimen>
+    <dimen name="normal_padding">16dp</dimen>
     <!--CommonItem-->
     <dimen name="common_item_height">48dp</dimen>
     <dimen name="common_item_padding_h">@dimen/activity_margin</dimen>

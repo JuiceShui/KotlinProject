@@ -45,7 +45,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, HomeContract.View {
     }
 
     override fun canSlidingClose(): Boolean {
-        return true
+        return false
     }
 
     override fun onGetData(data: MutableList<WXHotNewsEntity>) {
