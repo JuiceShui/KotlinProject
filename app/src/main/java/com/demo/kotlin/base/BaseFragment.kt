@@ -20,6 +20,7 @@ import com.demo.kotlin.inject.component.FragmentComponent
 import com.demo.kotlin.inject.module.FragmentModule
 import com.demo.kotlin.utils.ToastUtil
 import com.demo.kotlin.utils.bus.AppBus
+import com.gyf.immersionbar.ImmersionBar
 import io.reactivex.rxjava3.core.ObservableTransformer
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
@@ -55,6 +56,8 @@ abstract class BaseFragment : Fragment(), ILoadView, ICreateInit,
 
     // 管理RxJava任务
     private var mCompositeDisposable: CompositeDisposable? = null
+
+    protected var mFitSystemBar = false
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
         mActivity = activity as BaseActivity?
@@ -99,17 +102,22 @@ abstract class BaseFragment : Fragment(), ILoadView, ICreateInit,
 
             }
         }
+        if (mFitSystemBar) {
+            val statusBarHeight = ImmersionBar.getStatusBarHeight(this)
+            mViewDataBinding?.root?.setPadding(0, statusBarHeight, 0, 0)
+        }
         if (!mLazyInitEnabled) {
             initParams()
             initViews()
             initListeners()
+            getData()
         }
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         if (isVisibleToUser && !mInit) {
-           // onLazyInitView(null)
+            // onLazyInitView(null)
             mInit = true
         }
     }
@@ -117,7 +125,7 @@ abstract class BaseFragment : Fragment(), ILoadView, ICreateInit,
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         if (!hidden && !mInit) {
-           // onLazyInitView(null)
+            // onLazyInitView(null)
             mInit = true
         }
     }
@@ -251,7 +259,7 @@ abstract class BaseFragment : Fragment(), ILoadView, ICreateInit,
     override fun showMainView() {}
     protected abstract fun initInject()
     protected abstract fun initBinding(): View?
-    protected fun getPresenter(): IPresenter<ILoadView>? {
+    protected open fun getPresenter(): IPresenter<ILoadView>? {
         return null
     }
 
@@ -272,5 +280,9 @@ abstract class BaseFragment : Fragment(), ILoadView, ICreateInit,
 
     override fun handleException(throwable: Throwable?) {
 
+    }
+
+    protected open fun fitSystemBar(fit: Boolean) {
+        this.mFitSystemBar = fit
     }
 }

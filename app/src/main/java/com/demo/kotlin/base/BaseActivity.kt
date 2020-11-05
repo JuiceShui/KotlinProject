@@ -27,6 +27,8 @@ import com.demo.kotlin.utils.bus.AppBus
 import com.demo.kotlin.view.widget.AppBar
 import com.demo.kotlin.view.widget.DefaultLoadingDialog
 import com.demo.kotlin.view.widget.SlidingLayout
+import com.gyf.immersionbar.BarHide
+import com.gyf.immersionbar.ImmersionBar
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -68,6 +70,10 @@ abstract class BaseActivity : AppCompatActivity(), ICreateInit, ILoadView, Handl
         if (canSlidingClose()) {
             val layout = SlidingLayout(this)
             layout.bindActivity(this)
+        }
+        //隐藏导航栏
+        if (ImmersionBar.hasNavigationBar(this)) {
+            ImmersionBar.with(this).hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR).init()
         }
         AppBus.register(this)
         mApp = BaseApplication.instance

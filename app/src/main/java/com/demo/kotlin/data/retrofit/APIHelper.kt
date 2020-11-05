@@ -30,4 +30,12 @@ class APIHelper private constructor(server: String) : BaseAPI(server) {
             .compose(handleResponse())
 
     }
+
+    //毒鸡汤接口
+    fun getSoap(): Observable<RespBean<Any>> {
+        val params = mapParams
+        params["key"] = BuildConfig.TXAPI_KEY
+        return mHelper.mRetrofitApi!![ApiPath.DuJiTang, params]
+            .compose(handleResponse())
+    }
 }

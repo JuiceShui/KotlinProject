@@ -28,7 +28,7 @@
 
         <com.github.mmin18.widget.RealtimeBlurView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/navigation_bar_height"
             app:layout_constraintBottom_toBottomOf="parent"
             app:realtimeBlurRadius="20dp"
             app:realtimeOverlayColor="@color/half_transport_white" />
@@ -36,7 +36,7 @@
         <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
             android:id="@+id/bottom_navigation_view_linear"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/navigation_bar_height"
             android:background="@color/transparent"
             android:elevation="8dp"
             android:orientation="horizontal"

@@ -12,5 +12,8 @@ interface ApiPath {
 
         //微信精选
         const val WXGoodNews = "/wxnew/index"
+
+        //毒鸡汤
+        const val DuJiTang = "/txapi/dujitang/index"
     }
 }

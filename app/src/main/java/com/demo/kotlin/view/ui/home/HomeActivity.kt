@@ -7,13 +7,10 @@ import com.demo.kotlin.base.mvp.ILoadView
 import com.demo.kotlin.base.mvp.IPresenter
 import com.demo.kotlin.data.entity.WXHotNewsEntity
 import com.demo.kotlin.databinding.ActivityHomeBinding
-import com.demo.kotlin.utils.ToastUtil
 import com.demo.kotlin.view.ui.home.contract.HomeContract
 import com.demo.kotlin.view.ui.home.presenter.HomePresenter
 import kotlinx.android.synthetic.main.activity_home.*
-import java.lang.StringBuilder
 import javax.inject.Inject
-import javax.inject.Named
 
 class HomeActivity : BaseActivity(), View.OnClickListener, HomeContract.View {
     private lateinit var mBinding: ActivityHomeBinding

@@ -8,6 +8,7 @@ import com.demo.kotlin.base.BaseActivity
 import com.demo.kotlin.databinding.ActivityMainBinding
 import com.demo.kotlin.view.ui.home.adapter.MainFragmentPagerAdapter
 import com.demo.kotlin.view.ui.home.fragment.HomeFragment
+import com.demo.kotlin.view.ui.home.fragment.SoapFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), View.OnClickListener {
@@ -36,7 +37,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mFragments.add(HomeFragment("BBB"))
         mFragments.add(HomeFragment("CCC"))
         mFragments.add(HomeFragment("DDD"))
-        mFragments.add(HomeFragment("EEE"))
+        mFragments.add(SoapFragment())
         mAdapter = MainFragmentPagerAdapter(mFragments, supportFragmentManager)
         bottom_navigation_view_linear.setBadgeValue(0, "40")
         bottom_navigation_view_linear.setBadgeValue(1, null)

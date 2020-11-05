@@ -93,6 +93,11 @@ dependencies {
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
     //blur
     implementation 'com.github.mmin18:realtimeblurview:1.2.1'
+    //statusbar  navigationbar
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+    implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0'
+    implementation 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
+
 
 }
 //配置路径

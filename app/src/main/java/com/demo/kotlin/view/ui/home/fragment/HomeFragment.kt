@@ -4,6 +4,7 @@ import android.view.View
 import com.demo.kotlin.R
 import com.demo.kotlin.base.BaseFragment
 import com.demo.kotlin.databinding.FragmentHomeBinding
+import com.gyf.immersionbar.ImmersionBar
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment(val text: String) : BaseFragment(), View.OnClickListener {
@@ -16,6 +17,7 @@ class HomeFragment(val text: String) : BaseFragment(), View.OnClickListener {
     override fun initBinding(): View? {
         mBinding = mViewDataBinding as FragmentHomeBinding
         mBinding.click = this
+        fitSystemBar(true)
         return mBinding.root
     }
 
