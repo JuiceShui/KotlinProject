@@ -1,6 +1,6 @@
 package com.demo.kotlin.data.entity;
 
-public class SoapEntity {
+public class TXDrugSoapEntity {
 
     private String content;
 

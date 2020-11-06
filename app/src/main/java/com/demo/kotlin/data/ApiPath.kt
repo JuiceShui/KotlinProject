@@ -14,6 +14,9 @@ interface ApiPath {
         const val WXGoodNews = "/wxnew/index"
 
         //毒鸡汤
-        const val DuJiTang = "/txapi/dujitang/index"
+        const val TXDrugSoap = "/txapi/dujitang/index"
+
+        //每日一句
+        const val TXTipsADay = "/txapi/everyday/index"
     }
 }

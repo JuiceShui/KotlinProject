@@ -18,7 +18,7 @@ object Tools {
 
     fun createBitmapFromView(view: View): Bitmap? {
         if (view is ImageView) {
-            val drawable: Drawable = (view as ImageView).getDrawable()
+            val drawable: Drawable = (view as ImageView).drawable
             if (drawable != null && drawable is BitmapDrawable) {
                 return drawable.bitmap
             }

@@ -5,15 +5,24 @@ import com.demo.kotlin.R
 import com.demo.kotlin.base.BaseFragment
 import com.demo.kotlin.base.mvp.ILoadView
 import com.demo.kotlin.base.mvp.IPresenter
-import com.demo.kotlin.data.entity.SoapEntity
+import com.demo.kotlin.data.entity.TXDrugSoapEntity
 import com.demo.kotlin.databinding.FragmentSoapBinding
 import com.demo.kotlin.view.ui.home.contract.SoapContract
 import com.demo.kotlin.view.ui.home.presenter.SoapPresenter
 import com.demo.kotlin.view.widget.explosion.ExplosionField
 import javax.inject.Inject
 
-class SoapFragment : BaseFragment(), SoapContract.View, View.OnClickListener {
+class SoapFragment : BaseFragment(), SoapContract.View, View.OnClickListener,
+    ExplosionField.onAnimEndListener {
     private lateinit var mBinding: FragmentSoapBinding
+    private val mTextColorList = intArrayOf(
+        R.color.blue_active,
+        R.color.green_active,
+        R.color.orange_active,
+        R.color.red_active,
+        R.color.purple_active,
+        R.color.yellow_active,
+    )
 
     @Inject
     lateinit var mPresenter: SoapPresenter
@@ -29,8 +38,9 @@ class SoapFragment : BaseFragment(), SoapContract.View, View.OnClickListener {
     }
 
     override fun initViews() {
-        mBinding.root.setBackgroundColor(resources.getColor(R.color.orange_active))
+        mBinding.root.setBackgroundColor(resources.getColor(R.color.theme_color))
         mExplodeField = ExplosionField.attach2Window(mActivity!!)
+        mExplodeField.setOnAnimEndListener(this)
     }
 
     override val layoutId: Int
@@ -44,8 +54,10 @@ class SoapFragment : BaseFragment(), SoapContract.View, View.OnClickListener {
         mPresenter.getSoapData()
     }
 
-    override fun onGetSoap(data: SoapEntity) {
+    override fun onGetSoap(data: TXDrugSoapEntity) {
         mBinding.tvSoap.text = data.content
+        // val index = (0..mTextColorList.size).random()
+        mBinding.tvSoap.setTextColor(getColor(mTextColorList[(0..mTextColorList.size).random()]))
     }
 
     override fun onClick(v: View) {
@@ -54,5 +66,10 @@ class SoapFragment : BaseFragment(), SoapContract.View, View.OnClickListener {
                 mExplodeField.explode(v)
             }
         }
+    }
+
+    override fun onAnimEnd() {
+        mBinding.tvSoap.bringToFront()
+        getData()
     }
 }

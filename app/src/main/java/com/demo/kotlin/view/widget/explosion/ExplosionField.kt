@@ -13,6 +13,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import androidx.core.animation.addListener
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -20,6 +21,7 @@ import kotlin.collections.ArrayList
 class ExplosionField : View {
     private val mExplosions: MutableList<ExplosionAnimator> = ArrayList()
     private val mExpandInset = IntArray(2)
+    private var mListener: onAnimEndListener? = null
 
     constructor(context: Context?) : super(context) {
         init()
@@ -67,7 +69,10 @@ class ExplosionField : View {
     }
 
     fun explode(view: View) {
+        view.isClickable = false
         val r = Rect()
+        val x = view.x
+        val y = view.y
         view.getGlobalVisibleRect(r)
         val location = IntArray(2)
         getLocationOnScreen(location)
@@ -78,9 +83,35 @@ class ExplosionField : View {
         animator.addUpdateListener(object : AnimatorUpdateListener {
             var random: Random = Random()
             override fun onAnimationUpdate(animation: ValueAnimator) {
-                view.translationX = (random.nextFloat() - 0.5f) * view.getWidth() * 0.05f
-                view.translationY = (random.nextFloat() - 0.5f) * view.getHeight() * 0.05f
+                view.translationX = (random.nextFloat() - 0.5f) * view.width * 0.05f
+                view.translationY = (random.nextFloat() - 0.5f) * view.height * 0.05f
             }
+        })
+        animator.addListener(object : Animator.AnimatorListener {
+            override fun onAnimationStart(animation: Animator?) {
+            }
+
+            override fun onAnimationEnd(animation: Animator?) {
+                mListener?.onAnimEnd()
+                view.x = x
+                view.y = y
+                view.postDelayed({
+                    view.animate().setDuration(500).setStartDelay(startDelay * 5).scaleX(1f)
+                        .scaleY(1f)
+                        .alpha(1f)
+                        .start()
+                }, 500)
+                view.postDelayed({
+                    view.isClickable = true
+                }, 1000)
+            }
+
+            override fun onAnimationCancel(animation: Animator?) {
+            }
+
+            override fun onAnimationRepeat(animation: Animator?) {
+            }
+
         })
         animator.start()
         view.animate().setDuration(150).setStartDelay(startDelay).scaleX(0f).scaleY(0f)
@@ -97,6 +128,14 @@ class ExplosionField : View {
     fun clear() {
         mExplosions.clear()
         invalidate()
+    }
+
+    interface onAnimEndListener {
+        fun onAnimEnd()
+    }
+
+    fun setOnAnimEndListener(listener: onAnimEndListener) {
+        this.mListener = listener
     }
 
     companion object {

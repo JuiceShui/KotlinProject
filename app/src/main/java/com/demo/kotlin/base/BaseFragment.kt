@@ -25,6 +25,7 @@ import io.reactivex.rxjava3.core.ObservableTransformer
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import java.util.*
+import javax.annotation.Resource
 import javax.inject.Inject
 
 
@@ -284,5 +285,9 @@ abstract class BaseFragment : Fragment(), ILoadView, ICreateInit,
 
     protected open fun fitSystemBar(fit: Boolean) {
         this.mFitSystemBar = fit
+    }
+
+    protected fun getColor(color: Int): Int {
+        return mActivity?.resources!!.getColor(color)
     }
 }

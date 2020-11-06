@@ -1,10 +1,8 @@
 package com.demo.kotlin.data.retrofit
 
-import androidx.core.os.BuildCompat
 import com.demo.kotlin.BuildConfig
 import com.demo.kotlin.data.ApiPath
 import com.demo.kotlin.data.bean.RespBean
-import com.demo.kotlin.utils.LogUtil
 import io.reactivex.rxjava3.core.Observable
 
 class APIHelper private constructor(server: String) : BaseAPI(server) {
@@ -35,7 +33,15 @@ class APIHelper private constructor(server: String) : BaseAPI(server) {
     fun getSoap(): Observable<RespBean<Any>> {
         val params = mapParams
         params["key"] = BuildConfig.TXAPI_KEY
-        return mHelper.mRetrofitApi!![ApiPath.DuJiTang, params]
+        return mHelper.mRetrofitApi!![ApiPath.TXDrugSoap, params]
+            .compose(handleResponse())
+    }
+
+    fun getTipsADay(date: String): Observable<RespBean<Any>> {
+        val params = mapParams
+        params["key"] = BuildConfig.TXAPI_KEY
+        params["date"] = date
+        return mHelper.mRetrofitApi!![ApiPath.TXTipsADay, params]
             .compose(handleResponse())
     }
 }
