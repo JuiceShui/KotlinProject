@@ -18,5 +18,8 @@ interface ApiPath {
 
         //每日一句
         const val TXTipsADay = "/txapi/everyday/index"
+
+        //抖音热搜
+        const val TXDouYinVideo = "/txapi/dyvideohot/index"
     }
 }

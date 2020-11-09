@@ -13,15 +13,17 @@
         android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.KotlinDemo"
+        android:theme="@style/AppTheme"
         tools:targetApi="o">
-        <activity android:name=".view.ui.home.MainActivity">
+        <activity android:name=".view.ui.common.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.ui.home.MainActivity" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.demo.kotlin.fileprovider"

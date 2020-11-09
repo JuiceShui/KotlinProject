@@ -37,11 +37,21 @@ class APIHelper private constructor(server: String) : BaseAPI(server) {
             .compose(handleResponse())
     }
 
+    //获取每日tips
+    //format 2019-10-18
     fun getTipsADay(date: String): Observable<RespBean<Any>> {
         val params = mapParams
         params["key"] = BuildConfig.TXAPI_KEY
         params["date"] = date
         return mHelper.mRetrofitApi!![ApiPath.TXTipsADay, params]
+            .compose(handleResponse())
+    }
+
+    //获取抖音视频
+    fun getDouYinVideo(): Observable<RespBean<Any>> {
+        val params = mapParams
+        params["key"] = BuildConfig.TXAPI_KEY
+        return mHelper.mRetrofitApi!![ApiPath.TXDouYinVideo, params]
             .compose(handleResponse())
     }
 }

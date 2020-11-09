@@ -1,15 +1,32 @@
 package com.demo.kotlin.view.ui.home.fragment
 
 import android.view.View
+import androidx.core.content.ContextCompat
+import androidx.viewpager2.widget.ViewPager2
 import com.demo.kotlin.R
 import com.demo.kotlin.base.BaseFragment
+import com.demo.kotlin.base.mvp.ILoadView
+import com.demo.kotlin.base.mvp.IPresenter
+import com.demo.kotlin.data.entity.TXDouYinVideoEntity
 import com.demo.kotlin.databinding.FragmentHomeBinding
+import com.demo.kotlin.view.ui.home.adapter.HomeAdapter
+import com.demo.kotlin.view.ui.home.contract.HomeContract
+import com.demo.kotlin.view.ui.home.presenter.HomePresenter
 import com.gyf.immersionbar.ImmersionBar
+import com.zhpan.bannerview.constants.PageStyle
+import com.zhpan.bannerview.utils.BannerUtils
+import com.zhpan.indicator.enums.IndicatorSlideMode
+import com.zhpan.indicator.enums.IndicatorStyle
 import kotlinx.android.synthetic.main.fragment_home.*
+import javax.inject.Inject
 
-class HomeFragment(val text: String) : BaseFragment(), View.OnClickListener {
+class HomeFragment(val text: String) : BaseFragment(), View.OnClickListener, HomeContract.View {
 
     private lateinit var mBinding: FragmentHomeBinding
+    private lateinit var mAdapter: HomeAdapter
+
+    @Inject
+    lateinit var mPresenter: HomePresenter
     override fun initInject() {
         getFragmentComponent().inject(this)
     }
@@ -17,7 +34,6 @@ class HomeFragment(val text: String) : BaseFragment(), View.OnClickListener {
     override fun initBinding(): View? {
         mBinding = mViewDataBinding as FragmentHomeBinding
         mBinding.click = this
-        fitSystemBar(true)
         return mBinding.root
     }
 
@@ -29,15 +45,49 @@ class HomeFragment(val text: String) : BaseFragment(), View.OnClickListener {
 
     }
 
+    override fun getPresenter(): IPresenter<ILoadView>? {
+        return mPresenter as IPresenter<ILoadView>
+    }
+
+    override fun getData() {
+        mPresenter.getHomeData()
+    }
+
     override fun initViews() {
-        mBinding.tvText.text = text
-        when (text) {
-            "AAA" -> mBinding.root.setBackgroundColor(mActivity?.resources!!.getColor(R.color.red_active))
-            "BBB" -> mBinding.root.setBackgroundColor(mActivity?.resources!!.getColor(R.color.black))
-            "CCC" -> mBinding.root.setBackgroundColor(mActivity?.resources!!.getColor(R.color.green_active))
-            "DDD" -> mBinding.root.setBackgroundColor(mActivity?.resources!!.getColor(R.color.yellow_active))
-            "EEE" -> mBinding.root.setBackgroundColor(mActivity?.resources!!.getColor(R.color.orange_active))
-            else -> mBinding.root.setBackgroundColor(mActivity?.resources!!.getColor(R.color.purple_active))
-        }
+        mBinding.banner.apply {
+            mAdapter = HomeAdapter()
+            setAutoPlay(true)
+            setLifecycleRegistry(lifecycle)
+            setIndicatorStyle(IndicatorStyle.ROUND_RECT)
+            setIndicatorSliderGap(resources.getDimensionPixelOffset(R.dimen.dp_4))
+            setIndicatorMargin(0, 0, 0, resources.getDimension(R.dimen.dp_100).toInt())
+            setIndicatorSlideMode(IndicatorSlideMode.SMOOTH)
+            setPageMargin(resources.getDimensionPixelOffset(R.dimen.dp_10))
+            setRevealWidth(resources.getDimensionPixelOffset(R.dimen.dp_35))
+            setPageStyle(PageStyle.MULTI_PAGE_SCALE)
+            setIndicatorSliderRadius(
+                resources.getDimension(R.dimen.dp_3).toInt(),
+                resources.getDimension(R.dimen.dp_4_5).toInt()
+            )
+            mActivity?.let {
+                setIndicatorSliderColor(
+                    ContextCompat.getColor(it, R.color.white),
+                    ContextCompat.getColor(it, R.color.half_transport_white)
+                )
+            }
+            setAdapter(mAdapter)
+            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    BannerUtils.log("position:$position")
+                }
+            })
+        }.create()
+    }
+
+    override fun onGetBanner(data: MutableList<TXDouYinVideoEntity>) {
+        mBinding.banner.refreshData(data)
+    }
+
+    override fun onGetHomeList(data: MutableList<TXDouYinVideoEntity>) {
     }
 }

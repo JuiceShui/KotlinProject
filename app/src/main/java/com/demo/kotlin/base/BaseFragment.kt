@@ -20,6 +20,7 @@ import com.demo.kotlin.inject.component.FragmentComponent
 import com.demo.kotlin.inject.module.FragmentModule
 import com.demo.kotlin.utils.ToastUtil
 import com.demo.kotlin.utils.bus.AppBus
+import com.demo.kotlin.utils.statusBarHeight
 import com.gyf.immersionbar.ImmersionBar
 import io.reactivex.rxjava3.core.ObservableTransformer
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -104,8 +105,8 @@ abstract class BaseFragment : Fragment(), ILoadView, ICreateInit,
             }
         }
         if (mFitSystemBar) {
-            val statusBarHeight = ImmersionBar.getStatusBarHeight(this)
-            mViewDataBinding?.root?.setPadding(0, statusBarHeight, 0, 0)
+            val statusBarHeight = mActivity?.statusBarHeight()
+            mViewDataBinding?.root?.setPadding(0, statusBarHeight!!, 0, 0)
         }
         if (!mLazyInitEnabled) {
             initParams()

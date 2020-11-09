@@ -88,7 +88,10 @@ dependencies {
     api 'com.github.castorflex.smoothprogressbar:library-circular:1.2.0'
     kapt 'com.github.bumptech.glide:compiler:4.10.0'
     // fastjson
-    api 'com.alibaba:fastjson:1.2.31'
+    api 'com.alibaba:fastjson:1.2.73'
+    //用于fastjson解析default constructor
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.10"
+
     //navigatorView
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
     //blur
@@ -97,6 +100,9 @@ dependencies {
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
     implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0'
     implementation 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
+
+    implementation 'com.github.zhpanvip:BannerViewPager:3.2.0'
+
 
 
 }

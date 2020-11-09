@@ -43,6 +43,7 @@
 
     <!--public-->
     <color name="half_transport_white">#88FFFFFF</color>
+    <color name="half_transport_black">#55000000</color>
     <color name="theme_color">@color/material_blueGrey_500</color>
     <color name="colorPrimary">@color/theme_color</color>
     <color name="colorPrimaryDark">@color/material_blueGrey_700</color>

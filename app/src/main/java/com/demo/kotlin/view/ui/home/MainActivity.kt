@@ -1,5 +1,7 @@
 package com.demo.kotlin.view.ui.home
 
+import android.app.Activity
+import android.content.Intent
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
@@ -12,6 +14,13 @@ import com.demo.kotlin.view.ui.home.fragment.SoapFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), View.OnClickListener {
+    companion object {
+        fun launch(from: Activity) {
+            from.startActivity(Intent(from, MainActivity::class.java))
+            from.finish()
+        }
+    }
+
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mFragments: MutableList<Fragment>
     private lateinit var mAdapter: MainFragmentPagerAdapter

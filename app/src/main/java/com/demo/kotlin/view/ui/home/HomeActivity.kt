@@ -7,16 +7,16 @@ import com.demo.kotlin.base.mvp.ILoadView
 import com.demo.kotlin.base.mvp.IPresenter
 import com.demo.kotlin.data.entity.WXHotNewsEntity
 import com.demo.kotlin.databinding.ActivityHomeBinding
-import com.demo.kotlin.view.ui.home.contract.HomeContract
-import com.demo.kotlin.view.ui.home.presenter.HomePresenter
+import com.demo.kotlin.view.ui.home.contract.HomeAcContract
+import com.demo.kotlin.view.ui.home.presenter.HomeAcPresenter
 import kotlinx.android.synthetic.main.activity_home.*
 import javax.inject.Inject
 
-class HomeActivity : BaseActivity(), View.OnClickListener, HomeContract.View {
+class HomeActivity : BaseActivity(), View.OnClickListener, HomeAcContract.View {
     private lateinit var mBinding: ActivityHomeBinding
 
     @Inject
-    lateinit var mPresenter: HomePresenter
+    lateinit var mPresenter: HomeAcPresenter
     override fun initInject() {
         getActivityComponent().inject(this)
     }

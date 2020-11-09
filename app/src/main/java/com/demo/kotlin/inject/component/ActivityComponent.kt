@@ -3,6 +3,7 @@ package com.demo.kotlin.inject.component
 import android.app.Activity
 import com.demo.kotlin.inject.module.ActivityModule
 import com.demo.kotlin.inject.scope.ActivityScope
+import com.demo.kotlin.view.ui.common.SplashActivity
 import com.demo.kotlin.view.ui.home.HomeActivity
 import com.demo.kotlin.view.ui.home.MainActivity
 import dagger.Component
@@ -16,4 +17,6 @@ interface ActivityComponent {
     fun inject(activity: HomeActivity)
 
     fun inject(activity: MainActivity)
+
+    fun inject(activity: SplashActivity)
 }
