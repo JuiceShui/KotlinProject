@@ -2,6 +2,8 @@ package com.demo.kotlin.view.ui.home.fragment
 
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.demo.kotlin.R
 import com.demo.kotlin.base.BaseFragment
@@ -10,20 +12,22 @@ import com.demo.kotlin.base.mvp.IPresenter
 import com.demo.kotlin.data.entity.TXDouYinVideoEntity
 import com.demo.kotlin.databinding.FragmentHomeBinding
 import com.demo.kotlin.view.ui.home.adapter.HomeAdapter
+import com.demo.kotlin.view.ui.home.adapter.HomeVideoAdapter
 import com.demo.kotlin.view.ui.home.contract.HomeContract
 import com.demo.kotlin.view.ui.home.presenter.HomePresenter
-import com.gyf.immersionbar.ImmersionBar
 import com.zhpan.bannerview.constants.PageStyle
 import com.zhpan.bannerview.utils.BannerUtils
 import com.zhpan.indicator.enums.IndicatorSlideMode
 import com.zhpan.indicator.enums.IndicatorStyle
-import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
 class HomeFragment(val text: String) : BaseFragment(), View.OnClickListener, HomeContract.View {
 
     private lateinit var mBinding: FragmentHomeBinding
-    private lateinit var mAdapter: HomeAdapter
+    private lateinit var mBannerAdapter: HomeAdapter
+    private lateinit var mVideoAdapter: HomeVideoAdapter
+    private lateinit var mVideoData: ArrayList<TXDouYinVideoEntity>
+    private lateinit var mLinearLayoutManager: LinearLayoutManager
 
     @Inject
     lateinit var mPresenter: HomePresenter
@@ -54,8 +58,13 @@ class HomeFragment(val text: String) : BaseFragment(), View.OnClickListener, Hom
     }
 
     override fun initViews() {
+        mVideoData = ArrayList<TXDouYinVideoEntity>()
+        mVideoAdapter = HomeVideoAdapter(mVideoData, mActivity!!)
+        mLinearLayoutManager = LinearLayoutManager(mActivity)
+        mBinding.homeRecycler.layoutManager = mLinearLayoutManager
+        mBinding.homeRecycler.adapter = mVideoAdapter
         mBinding.banner.apply {
-            mAdapter = HomeAdapter()
+            mBannerAdapter = HomeAdapter()
             setAutoPlay(true)
             setLifecycleRegistry(lifecycle)
             setIndicatorStyle(IndicatorStyle.ROUND_RECT)
@@ -75,7 +84,7 @@ class HomeFragment(val text: String) : BaseFragment(), View.OnClickListener, Hom
                     ContextCompat.getColor(it, R.color.half_transport_white)
                 )
             }
-            setAdapter(mAdapter)
+            setAdapter(mBannerAdapter)
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     BannerUtils.log("position:$position")
@@ -84,10 +93,24 @@ class HomeFragment(val text: String) : BaseFragment(), View.OnClickListener, Hom
         }.create()
     }
 
+    override fun initListeners() {
+        mBinding.homeRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                val currentVisiblePosition = mLinearLayoutManager.findFirstVisibleItemPosition()
+                mBinding.blur.visibility =
+                    if (currentVisiblePosition == 0) View.GONE else View.VISIBLE
+            }
+        })
+    }
+
     override fun onGetBanner(data: MutableList<TXDouYinVideoEntity>) {
         mBinding.banner.refreshData(data)
     }
 
     override fun onGetHomeList(data: MutableList<TXDouYinVideoEntity>) {
+        mVideoData.clear()
+        mVideoData.addAll(data)
+        mVideoAdapter.notifyDataSetChanged()
     }
 }
